@@ -98,7 +98,9 @@ public class SpeedkillsystemApplicationTests {
             //测试乐观锁
             //restTemplate.getForObject(url_optimistic,String.class);
             //测试带重试的乐观锁
-            restTemplate.getForObject(url_optimisticWithRetry,String.class);
+            //restTemplate.getForObject(url_optimisticWithRetry,String.class);
+            //测试使用redis原子操作保障原子性
+            restTemplate.getForObject(url_redis,String.class);
         }
     }
 
