@@ -13,11 +13,11 @@ import java.util.Map;
 
 public class UserController {
 
-    public static void main(String[] args) throws Exception {
+   /* public static void main(String[] args) throws Exception {
         Map<String,Object> keyMap=RSA2.initKey();
         String publicKeyStr = RSA2.getPublicKey(keyMap);
         String privateKeyStr = RSA2.getPrivateKey(keyMap);
         System.out.println("RSA公钥Base64编码:" + publicKeyStr);
         System.out.println("RSA私钥Base64编码:" + privateKeyStr);
-    }
+    }*/
 }
