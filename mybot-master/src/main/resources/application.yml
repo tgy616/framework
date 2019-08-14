@@ -1,0 +1,110 @@
+#端口和路径
+server:
+  port: 8080
+  servlet:
+    context-path: /api/
+
+
+#mybatis 数据源
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/tgy-interviews?useUnicode=true&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=UTC
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    min-idle: 5
+    initial-size: 5
+    max-total: 5
+    max-wait-millis: 60000
+    validationQuery: SELECT 1 FROM DUAL
+    timeBetweenEvictionRunsMillis: 6000
+    minEvictableIdleTimeMillis: 300000
+    poolPreparedStatements: true
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+
+    #配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+    #获取连接等待超时的时间
+
+  #序列化时间
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  #    default-property-inclusion: non_absent
+
+  security:
+    user:
+      # 用户名
+      name: user
+      # 密码
+      password: 123456
+
+
+#mybatis 别名包和xml路径
+mybatis:
+  type-aliases-package: com.boot.lea.mybot
+  mapper-locations: classpath:mapper/*.xml
+
+#sql日志
+logging:
+  level:
+    com:
+      boot:
+        lea:
+          mybot: debug
+
+api:
+  boot:
+    swagger:
+      enable: true
+      title: mybot开发文档swagger
+      description: 开发文档
+      base-package: com.boot.lea.mybot
+      version: 2.1.2.RELEASE
+      license: mybot
+      license-url: http://localhost:8080/api/swagger-ui.html
+      contact:
+        name: Lijing
+        email: 769917191@qq.com
+
+#    security:
+#      away: jdbc
+#      # Spring Security 内存方式用户列表示例
+#      users:
+#        - username: hengboy
+#          password: 123456
+#          roles: good
+#        - username: apiboot
+#          password: abc321
+#          roles: user,order
+#
+#    logging:
+#      # 修改每间隔10秒执行一次上报日志
+#      report-interval-second: 10
+#      admin:
+#        # Logging Admin 服务地址
+#        server-address: 127.0.0.1:9090
+#        # 显示上报日志
+#        show-console-report-log: true
+#        # 格式化上报日志
+#        format-console-log-json: true
+#        # 修改日志路径前缀，可配置多个
+#      logging-path-prefix:
+#        - /user/**
+#        - /order/**
+#        # 排除采集请求日志的路径列表
+#      ignore-paths:
+#        - /actuator/health
+#
+#      discovery:
+#        # Logging Admin ServiceID
+#        service-id: sample-logging-admin
