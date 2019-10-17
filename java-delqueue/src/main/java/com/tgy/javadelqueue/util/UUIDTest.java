@@ -38,5 +38,6 @@ public class UUIDTest {
     public static String getUUID(){
         UUID randomUUID = UUID.randomUUID();
         return randomUUID.toString();
+
     }
 }

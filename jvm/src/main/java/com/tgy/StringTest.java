@@ -12,5 +12,8 @@ public class StringTest {
         String s1=new String("hello");
         System.out.println(s==s1);
         System.out.println(s.equals(s1));
+        // intern方法可以将对象变为运行时常量
+        // intern是一个native方法
+        System.out.println(s==s1.intern());
     }
 }
