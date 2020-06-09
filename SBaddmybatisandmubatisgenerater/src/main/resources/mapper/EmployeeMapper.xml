@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tgy.springbootaddmybatisandmubatisgenerater.dao.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.tgy.springbootaddmybatisandmubatisgenerater.entity.Employee">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="lastName" jdbcType="VARCHAR" property="lastname" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="d_id" jdbcType="INTEGER" property="dId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tgy.springbootaddmybatisandmubatisgenerater.entity.Employee">
+    insert into t_employee (id, lastName, email, 
+      gender, d_id)
+    values (#{id,jdbcType=INTEGER}, #{lastname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{dId,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.tgy.springbootaddmybatisandmubatisgenerater.entity.Employee">
+    update t_employee
+    set lastName = #{lastname,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      d_id = #{dId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, lastName, email, gender, d_id
+    from t_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, lastName, email, gender, d_id
+    from t_employee
+  </select>
+</mapper>

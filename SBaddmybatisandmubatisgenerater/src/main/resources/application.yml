@@ -1,0 +1,37 @@
+#端口号配置
+server:
+  port: 8088
+spring:
+#模板引擎配置
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+    servlet:
+      content-type: text/html
+#静态文件配置
+  resources:
+    static-locations: classpath:/static,classpath:/META-INF/resources,classpath:/templates/
+#jdbc配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/mybatis?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#mybatis配置
+mybatis:
+#映射文件路径
+  mapper-locations: classpath:mapper/*.xml
+#模型所在的包名
+  type-aliases-package: com.tgy.springbootaddmybatisandmubatisgenerater.entity
+
+#showSql
+logging:
+  level:
+    com:
+      tgy:
+        springbootaddmybatisandmubatisgenerater:
+          dao: debug
+
