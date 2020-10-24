@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>flow-microservice-gzh</module>
+        <module>flow-framework-common</module>
+        <module>flow-microservice-blob</module>
+        <module>flow-microservice-manage</module>
+        <module>flow-microservice-mail</module>
+        <module>flow-microservice-ucenter</module>
+        <module>flow-microservice-pay</module>
+        <module>flow-microservice-order</module>
+    </modules>
+    <!--模块信息-->
+    <groupId>cn.yccoding</groupId>
+    <artifactId>cloud-flow</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>cloud-flow</name>
+    <description>云流平台maven父工程</description>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.7.RELEASE</version>
+    </parent>
+
+    <!--版本信息-->
+    <properties>
+        <java.version>1.8</java.version>
+        <lombok.version>1.16.22</lombok.version>
+        <fastjson.version>1.2.58</fastjson.version>
+        <jasypt.version>2.1.0</jasypt.version>
+        <common.version>1.0-SNAPSHOT</common.version>
+        <javax.version>2.3.1</javax.version>
+        <azure-storage.version>0.2.0</azure-storage.version>
+        <sqlserver.version>6.4.0.jre8</sqlserver.version>
+        <sendgrid.version>4.2.1</sendgrid.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- common module-->
+            <dependency>
+                <groupId>cn.yccoding</groupId>
+                <artifactId>flow-framework-common</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+            <!--lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <!--fastjson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- jasypt加密 -->
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
+            <!--javax-->
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>${javax.version}</version>
+            </dependency>
+            <!--azure storage -->
+            <dependency>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-storage-spring-boot-starter</artifactId>
+                <version>${azure-storage.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>${sqlserver.version}</version>
+            </dependency>
+            <!--sendgrid -->
+            <dependency>
+                <groupId>com.sendgrid</groupId>
+                <artifactId>sendgrid-java</artifactId>
+                <version>${sendgrid.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

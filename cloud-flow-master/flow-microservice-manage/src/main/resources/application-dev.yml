@@ -1,0 +1,10 @@
+spring:
+# rabbitmq
+  rabbitmq:
+    host: 120.79.27.209
+    username:
+    password:
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual
